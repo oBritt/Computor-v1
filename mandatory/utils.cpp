@@ -93,3 +93,30 @@ double square_root(double number)
     }
     return (min);
 }
+
+std::string get_imaganery_number(double real, double imag)
+{
+    std::string out = "";
+
+    std::string reals = NumberToString(real);
+    std::string image = NumberToString(imag);
+    if (reals == "0" || reals == "-0")
+    {
+        out = image + "i";
+    }
+    else
+    {
+        out = reals;
+        if (imag > 0)
+        {
+            out += " + " + image; 
+        }
+        else
+        {
+            image = NumberToString(-imag);
+            out += " - " + image;
+        }
+        out += "i";
+    }
+    return (out);
+}

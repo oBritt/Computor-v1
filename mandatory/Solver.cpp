@@ -100,7 +100,13 @@ void    Solver::solve_quadratic(void)
     }
     else
     {
-        this->solution = "Discriminant is strictly negative, there is no solution";
+        this->solution = "Discriminant is strictly negative, the imaginary two solutions are:\n";
+        D = square_root(-D);
+        double real_s1 = -b / (2 * a); 
+        double imag_s1 = D / (2 * a);
+        double imag_s2 = -D / (2 * a);
+        this->solution += get_imaganery_number(real_s1, imag_s1) + "\n";
+        this->solution += get_imaganery_number(real_s1, imag_s2);
     }
 }
 

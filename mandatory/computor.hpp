@@ -20,6 +20,7 @@ int get_fist_not_numb(std::string& str);
 double fromStringToDouble(std::string &str);
 int fromStringToInt(std::string &str);
 double square_root(double number);
+std::string get_imaganery_number(double real, double imag);
 
 template <typename T>
 std::string NumberToString(const T numb) {
