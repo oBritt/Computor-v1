@@ -15,7 +15,6 @@ int main(int ac, char **av)
         to_solve = remove_spaces(to_solve);
         if (!check_syntax(to_solve))
             return (1);
-        return (0);
         Solver s(to_solve);
         s.solve();
         std::cout << s;

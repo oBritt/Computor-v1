@@ -7,6 +7,8 @@ Solver::Solver(std::string& equation): equation(equation), degree(0)
 
 double Solver::get_a(std::string& str)
 {
+    if (str[0] == 'X')
+        return (1);
     int len = get_fist_not_numb(str);
     std::string a = str.substr(0, len);
     str = str.substr(len);
@@ -17,7 +19,11 @@ int Solver::get_exp(std::string& str)
 {
     if (str == "")
         return (0);
-    str = str.substr(3);
+    if (str[0] == '*')
+        str = str.substr(1);
+    if (str.size() == 1)
+        return (1);
+    str = str.substr(2);
     return (fromStringToInt(str));
 }
 
@@ -53,14 +59,7 @@ void    Solver::get_reduced(void)
     }
     for (std::map<int, double>::iterator it = this->mp.begin(); it != this->mp.end(); it++)
     {
-        if (it->second > 0)
-        {
-            this->reduced += "+ " + NumberToString(it->second) + " * X^" + NumberToString(it->first) + " ";  
-        }
-        else
-        {
-            this->reduced += "- " + NumberToString(-it->second) + " * X^" + NumberToString(it->first) + " ";  
-        }
+        this->reduced += get_normal_numb(it->second, it->first, it == this->mp.begin());
         this->degree = it->first;
     }
     this->reduced += "= 0";

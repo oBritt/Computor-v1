@@ -23,6 +23,7 @@ int fromStringToInt(std::string &str);
 double square_root(double number);
 std::string get_imaganery_number(double real, double imag);
 bool    check_syntax(std::string& str);
+std::string get_normal_numb(double coef, int exp, bool first);
 
 template <typename T>
 std::string NumberToString(const T numb) {

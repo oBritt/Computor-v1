@@ -94,29 +94,99 @@ double square_root(double number)
     return (min);
 }
 
+double myfabs(double value)
+{
+    if (value > 0)
+        return value;
+    return -value;
+}
+
 std::string get_imaganery_number(double real, double imag)
 {
     std::string out = "";
 
-    std::string reals = NumberToString(real);
-    std::string image = NumberToString(imag);
-    if (reals == "0" || reals == "-0")
+    std::string reals = NumberToString(myfabs(real));
+    std::string image = NumberToString(myfabs(imag));
+    if (reals == "0" && image == "0")
     {
-        out = image + "i";
+        return ("0");
+    } 
+    if (reals == "0")
+    {
+        if (imag > 0)
+        {
+            if (image != "1")
+                out += image;
+        }
+        else
+        {
+            out += "-";
+            if (image != "1")
+                out += image;
+        }
+        out += "i";
     }
     else
     {
         out = reals;
         if (imag > 0)
         {
-            out += " + " + image; 
+            out += " + ";
+            if (image != "1")
+                out += image;
         }
         else
         {
-            image = NumberToString(-imag);
-            out += " - " + image;
+            out += " - ";
+            if (image != "1")
+                out += image;
         }
         out += "i";
     }
     return (out);
+}
+
+std::string get_normal_numb(double coef, int exp, bool first)
+{
+
+    std::string out;
+    std::string coefi = NumberToString(myfabs(coef));
+    bool seen = 0;
+    if (coef > 0)
+    {
+        if (!first)
+            out = " + ";
+        if (myfabs(coef) != 1.0)
+        {
+            seen = 1;
+            out += coefi;
+        }
+    }
+    else
+    {
+        if (first)
+        {
+            out = "-";
+        }
+        else
+        {
+            out = " - ";
+        }
+        if (myfabs(coef) != 1.0)
+        {
+            seen = 1;
+            out += coefi;
+        }
+    }
+    if (exp != 0)
+    {
+        if (seen)
+        {
+            out += " * ";
+        }
+        out += "X";
+        if (exp != 1)
+            out += "^" + NumberToString(exp);
+    }
+    return out;
 }
