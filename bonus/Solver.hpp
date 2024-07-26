@@ -22,7 +22,7 @@ class Solver
         void    get_solution(void);
         void solve_liniar(void);
         void   solve_quadratic(void);
-
+        void    solve_cubic(void);
 };
 
 std::ostream& operator<<(std::ostream &o, Solver const & other);

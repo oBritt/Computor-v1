@@ -137,7 +137,7 @@ void    Solver::solve(void)
 {
     std::string work_string = remove_spaces(this->equation);
     int factor = 1;
-    std::cout << work_string << std::endl;
+
     while (work_string.size())
     {
         if (work_string[0] == '=')

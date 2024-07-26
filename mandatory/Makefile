@@ -1,6 +1,6 @@
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = $(wildcard *.cpp)
+SRCS =  main.cpp Solver.cpp utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

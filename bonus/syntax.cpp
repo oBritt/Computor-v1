@@ -121,6 +121,8 @@ bool    checkStuff(std::string& str)
 
 bool    check_syntax(std::string& str)
 {
+    change_x(str);
+    improve_xs(str);
     if (str.find('=') == std::string::npos)
     {
         std::cout << "there must be '=' sign" << std::endl;

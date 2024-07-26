@@ -62,9 +62,7 @@ void    Solver::get_reduced(void)
         this->reduced += get_normal_numb(it->second, it->first, it == this->mp.begin());
         this->degree = it->first;
     }
-    this->reduced += "= 0";
-    if (this->reduced[0] == '+')
-        this->reduced = this->reduced.substr(2);
+    this->reduced += " = 0";
 }
 
 void    Solver::solve_liniar(void)
@@ -128,7 +126,7 @@ void    Solver::get_solution(void)
     }
     else
     {
-        this->solution = "The polynomial degree is strictly greater than 2, I can't solve.";
+        this->solution = "The polynomial degree is strictly greater than 3, I can't solve.";
     }
 }
 
